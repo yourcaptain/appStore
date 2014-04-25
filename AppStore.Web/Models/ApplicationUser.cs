@@ -2,8 +2,6 @@
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using AppStore.Data;
-using System.Collections.Generic;
 
 namespace AppStore.Web.Models
 {
@@ -17,24 +15,9 @@ namespace AppStore.Web.Models
             // Add custom user claims here
             return userIdentity;
         }
-        public string FirstName { get; set; }
-        public string Surname { get; set; }
-        public bool IsEnabled { get; set; }
-        public Company Company { get; set; }
-        public virtual ICollection<ApplicationVersion> AuthorizedApplicationVersions { get; set; }
-        public virtual ICollection<ApplicationVersion> InstalledApplicationVersions { get; set; }
-    }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
-    {
-        public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
-        {
-        }
+        public virtual MyUserInfo MyUserInfo { get; set; }
 
-        public static ApplicationDbContext Create()
-        {
-            return new ApplicationDbContext();
-        }
+      
     }
 }

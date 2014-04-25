@@ -12,6 +12,6 @@ namespace AppStore.Data
         public int CompanyId { get; set; }
         public string Name { get; set; }
         public virtual ICollection<ApplicationVersion> AuthorizedApplicationVersions { get; set; }
-        public virtual ICollection<ApplicationUser> Users { get; set; }
+        public virtual ICollection<MyUserInfo> Users { get; set; }
     }
 }

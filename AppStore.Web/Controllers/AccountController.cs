@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -80,7 +81,11 @@ namespace AppStore.Web.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            var registerViewModel = new RegisterViewModel();
+            var dbContext = new ApplicationDbContext();
+            registerViewModel.Companies = new Collection<Company>(dbContext.Companies.ToList());
+
+            return View(registerViewModel);
         }
 
         //
