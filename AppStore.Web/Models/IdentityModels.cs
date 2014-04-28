@@ -4,6 +4,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using AppStore.Data;
 using System.Collections.Generic;
+using System.Data.Entity;
 
 namespace AppStore.Web.Models
 {
@@ -20,13 +21,26 @@ namespace AppStore.Web.Models
         public string FirstName { get; set; }
         public string Surname { get; set; }
         public bool IsEnabled { get; set; }
-        public Company Company { get; set; }
+        public virtual Company Company { get; set; }
         public virtual ICollection<ApplicationVersion> AuthorizedApplicationVersions { get; set; }
         public virtual ICollection<ApplicationVersion> InstalledApplicationVersions { get; set; }
+
+
+
+        public int CompanyId { get; set; }
+      
+
+   
+
+
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Application> Applications { get; set; }
+        public DbSet<ApplicationVersion> ApplicationVersions { get; set; }
+        public DbSet<Company> Companies { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -36,5 +50,8 @@ namespace AppStore.Web.Models
         {
             return new ApplicationDbContext();
         }
+
+      
+      
     }
 }
