@@ -84,8 +84,7 @@ namespace AppStore.Web.Controllers
             var registerViewModel = new RegisterViewModel();
             var dbContext = new ApplicationDbContext();
             registerViewModel.Companies = new Collection<Company>(dbContext.Companies.ToList());
-
-            return View(registerViewModel);
+                        return View(registerViewModel);
         }
 
         //
@@ -98,6 +97,7 @@ namespace AppStore.Web.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+                user.MyUserInfo = new MyUserInfo { FirstName=model.FirstName, Surname=model.Surname, CompanyId=int.Parse(model.SelectedCompany)};
                 IdentityResult result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

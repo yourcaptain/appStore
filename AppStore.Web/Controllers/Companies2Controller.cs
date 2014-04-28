@@ -11,17 +11,17 @@ using AppStore.Web.Models;
 
 namespace AppStore.Web.Controllers
 {
-    public class CompaniesController : Controller
+    public class Companies2Controller : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Companies
+        // GET: Companies2
         public ActionResult Index()
         {
             return View(db.Companies.ToList());
         }
 
-        // GET: Companies/Details/5
+        // GET: Companies2/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,13 +36,13 @@ namespace AppStore.Web.Controllers
             return View(company);
         }
 
-        // GET: Companies/Create
+        // GET: Companies2/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Companies/Create
+        // POST: Companies2/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -59,7 +59,7 @@ namespace AppStore.Web.Controllers
             return View(company);
         }
 
-        // GET: Companies/Edit/5
+        // GET: Companies2/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -74,7 +74,7 @@ namespace AppStore.Web.Controllers
             return View(company);
         }
 
-        // POST: Companies/Edit/5
+        // POST: Companies2/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -90,7 +90,7 @@ namespace AppStore.Web.Controllers
             return View(company);
         }
 
-        // GET: Companies/Delete/5
+        // GET: Companies2/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -105,7 +105,7 @@ namespace AppStore.Web.Controllers
             return View(company);
         }
 
-        // POST: Companies/Delete/5
+        // POST: Companies2/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

@@ -75,12 +75,15 @@ namespace AppStore.Web.Models
         [Display(Name = "Surname")]
         public string Surname { get; set; }
 
+        [Display(Name = "Companies")]
         public Collection<Company> Companies { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        public string  SelectedCompany { get; set; }
     }
 
     public class ResetPasswordViewModel
