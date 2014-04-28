@@ -1,4 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
+
+using AppStore.Data;
 
 namespace AppStore.Web.Models
 {
@@ -63,6 +66,16 @@ namespace AppStore.Web.Models
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
+
+        [Required]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Surname")]
+        public string Surname { get; set; }
+
+        public Collection<Company> Companies { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]

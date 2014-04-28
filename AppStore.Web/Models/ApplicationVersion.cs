@@ -15,6 +15,7 @@ namespace AppStore.Data
         public int VersionName { get; set; }
         public string ReleaseNotes { get; set; }
         public Status Status { get; set; }
-        public virtual ICollection<ApplicationUser> Users { get; set; }
+        public virtual ICollection<MyUserInfo> InstalledUsers { get; set; }
+        public virtual ICollection<MyUserInfo> AuthorizedUsers { get; set; }
     }
 }
